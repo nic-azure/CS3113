@@ -129,8 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Level1.cpp" />
-    <ClCompile Include="Level2.cpp" />
-    <ClCompile Include="Level3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -141,8 +139,6 @@
   <ItemGroup>
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Level1.h" />
-    <ClInclude Include="Level2.h" />
-    <ClInclude Include="Level3.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Scene.h" />

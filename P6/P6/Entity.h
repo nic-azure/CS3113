@@ -15,7 +15,7 @@
 enum EntityType {PLAYER, PLATFORM, ENEMY};
 
 enum AIType { WALKER, WAITANDGO, PATROLLER };
-enum AIState {IDLE, WALKING, ATTACKING, PATROLLING};
+enum AIState {IDLE, WALKING, ATTACKING, PATROLLING, RISING};
 
 class Entity {
 public:
