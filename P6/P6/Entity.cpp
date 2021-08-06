@@ -140,17 +140,7 @@ void Entity::CheckCollisionsX(Map* map)
 }
 
 void Entity::AIWalker() {
-    
-    switch (aiState) {
-    case RISING:
-        movement = glm::vec3(0, 1, 0);
-        break;
-    case WALKING:
-        movement = glm::vec3(1, 0, 0);
-        break;
-    case ATTACKING:
-        break;
-    }
+    movement = glm::vec3(1, 0, 0);
 }
 
 void Entity::AIWaitandGo(Entity *player) {
@@ -261,10 +251,7 @@ void Entity::Update(float deltaTime, Entity *player, Entity* objects, int object
     if (entityType == ENEMY) {
 
         velocity.x = movement.x * speed;
-        velocity.y = movement.y * speed;
         velocity += acceleration * deltaTime;
-
-        
 
         velocity += acceleration * deltaTime;
 
@@ -276,7 +263,25 @@ void Entity::Update(float deltaTime, Entity *player, Entity* objects, int object
         CheckCollisionsX(map);
         CheckCollisionsX(player, 1); // Fix if needed
     }
- 
+    //if (entityType == PLAYER) {
+    //    
+    //    position.y += velocity.y * deltaTime; // Move on Y
+    //    //CheckCollisionsY(platforms, platformCount);// Fix if needed
+    //    //CheckCollisionsY(enemies, enemyCount);
+
+    //    position.x += velocity.x * deltaTime; // Move on X
+    //    //CheckCollisionsX(platforms, platformCount);// Fix if needed
+    //    //CheckCollisionsX(enemies, enemyCount);
+    //}
+    ////if (entityType == ENEMY) {
+    ////    position.y += velocity.y * deltaTime; // Move on Y
+    ////    //CheckCollisionsY(platforms, platformCount);// Fix if needed
+    ////    //CheckCollisionsY(player, 1);
+
+    ////    position.x += velocity.x * deltaTime; // Move on X
+    ////    //CheckCollisionsX(platforms, platformCount);// Fix if needed
+    ////    //CheckCollisionsX(player, 1);
+    ////}
     
     modelMatrix = glm::mat4(1.0f);
     modelMatrix = glm::translate(modelMatrix, position);

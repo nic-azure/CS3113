@@ -42,7 +42,7 @@ void Menu::Render(ShaderProgram* program) {
     state.map->Render(program);
     state.player->Render(program);
 
-    Util::DrawText(program, fonttextureID, "Box Bouncers!", 1, -0.5f, glm::vec3(2,-4,0));
+    Util::DrawText(program, fonttextureID, "George vs Mikes!", 1, -0.5f, glm::vec3(1.5f,-4,0));
 
     if (lives == 0) {
         Util::DrawText(program, fonttextureID, "You Lose!", 1, -0.5f, glm::vec3(2, -5, 0));
