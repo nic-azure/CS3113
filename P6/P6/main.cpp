@@ -17,6 +17,8 @@
 #include "Map.h"
 #include "Scene.h"
 #include "Level1.h"
+#include "Level2.h"
+#include "Level3.h"
 #include "Menu.h"
 
 
@@ -27,10 +29,10 @@ ShaderProgram program;
 glm::mat4 viewMatrix, modelMatrix, projectionMatrix;
 Mix_Music* music;
 Mix_Chunk* bounce;
-int lives = 1;
+int lives = 3;
 
 Scene* currentScene;
-Scene* sceneList[2];
+Scene* sceneList[4];
 
 void SwitchToScene(Scene* scene) {
     currentScene = scene;
@@ -53,10 +55,10 @@ void Initialize() {
     program.Load("shaders/vertex_textured.glsl", "shaders/fragment_textured.glsl");
     
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
-    music = Mix_LoadMUS("NewerWave.mp3");
+    music = Mix_LoadMUS("dooblydoo.mp3");
     Mix_PlayMusic(music, -1);
     Mix_VolumeMusic(MIX_MAX_VOLUME / 4);
-    bounce = Mix_LoadWAV("jump.wav");
+    bounce = Mix_LoadWAV("bounce.wav");
 
     viewMatrix = glm::mat4(1.0f);
     modelMatrix = glm::mat4(1.0f);
@@ -73,10 +75,10 @@ void Initialize() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     sceneList[0] = new Level1();
-    //sceneList[1] = new Level2();
-    //sceneList[2] = new Level3();
-    sceneList[1] = new Menu();
-    SwitchToScene(sceneList[1]);
+    sceneList[1] = new Level2();
+    sceneList[2] = new Level3();
+    sceneList[3] = new Menu();
+    SwitchToScene(sceneList[3]);
 
 }
 
